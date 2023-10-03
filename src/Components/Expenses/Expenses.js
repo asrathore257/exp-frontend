@@ -8,7 +8,12 @@ import ExpenseForm from './ExpenseForm';
 
 function Expenses() {
     const {addIncome,expenses, getExpenses, deleteExpense, totalExpenses} = useGlobalContext()
+  const [totalExpenses, setTotalExpenses] = useState(0); // Initialize totalExpenses state
 
+  // Function to update totalExpenses
+  const updateTotalExpenses = (newValue) => {
+    setTotalExpenses(newValue);
+  };
     useEffect(() =>{
         getExpenses()
     }, [])
@@ -19,7 +24,8 @@ function Expenses() {
                 <h2 className="total-income">Total Expense: <span>${totalExpenses()}</span></h2>
                 <div className="income-content">
                     <div className="form-container">
-                        <ExpenseForm />
+                        // <ExpenseForm />
+         <Expenses totalExpenses={totalExpenses} updateTotalExpenses={updateTotalExpenses} />
                     </div>
                     <div className="incomes">
                         {expenses.map((income) => {
