@@ -50,7 +50,7 @@ function ExpenseForm() {
             </div>
             <div className="input-control">
                 <input value={amount}  
-                    type="text" 
+                 type="number"
                     name={'amount'} 
                     placeholder={'Expense Amount'}
                     onChange={handleInput('amount')} 
@@ -125,6 +125,7 @@ const ExpenseFormStyled = styled.form`
     }
 
     .selects{
+    text-align: right;
         display: flex;
         justify-content: flex-end;
         select{
