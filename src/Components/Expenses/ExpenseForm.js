@@ -20,10 +20,6 @@ function ExpenseForm() {
     const { title, amount, date, category,description } = inputState;
 
     const handleInput = name => e => {
-  //        if (identifier === 'amount') {
-  //             const newAmountValue = parseFloat(inputValue);
-  //             updateTotalExpenses(newAmountValue);
-  // }
         setInputState({...inputState, [name]: e.target.value})
         setError('')
     }
@@ -54,11 +50,10 @@ function ExpenseForm() {
             </div>
             <div className="input-control">
                 <input value={amount}  
-                 type="number"
+                    type="text" 
                     name={'amount'} 
                     placeholder={'Expense Amount'}
                     onChange={handleInput('amount')} 
-                        // onChange={(event) => handleInput('amount', event)}
                 />
             </div>
             <div className="input-control">
@@ -130,7 +125,6 @@ const ExpenseFormStyled = styled.form`
     }
 
     .selects{
-    text-align: right;
         display: flex;
         justify-content: flex-end;
         select{
